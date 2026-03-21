@@ -227,6 +227,43 @@ int somar_dividas(){
     arquivo.close();
     return total;
 }
+int contar_dividas(){
+
+    ifstream arquivo("dividas.txt");
+    string linha;
+    int contador = 0;
+
+    if(!arquivo){
+        cout << "Erro ao abrir dividas.txt" << endl;
+        return 0;
+    }
+
+    while(getline(arquivo, linha)){
+        contador++;
+    }
+
+    arquivo.close();
+    return contador;
+}
+
+int contar_pagamentos(){
+
+    ifstream arquivo("dados.txt");
+    string linha;
+    int contador = 0;
+
+    if(!arquivo){
+        cout << "Erro ao abrir dados.txt" << endl;
+        return 0;
+    }
+
+    while(getline(arquivo, linha)){
+        contador++;
+    }
+
+    arquivo.close();
+    return contador;
+}
 
 void pesquisa(){
     string procura, linha;
