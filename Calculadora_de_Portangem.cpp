@@ -92,6 +92,7 @@ int main(){
 
 int menu(){
     int opcao;
+    while(true){
     cout << "\n===== SISTEMA DE PORTAGEM =====\n";
     cout << "\n1- registar passagem" << endl;
     cout << "2- dever passagem" << endl;
@@ -99,9 +100,16 @@ int menu(){
     cout << "4- estatisticas" << endl;
     cout << "5- sair" << endl;
     cout << "Escolha uma opcao: ";
-    cin >> opcao;
-    return opcao;
+     if(cin >> opcao){
+    	return opcao;
+    }else{
+    	cin.clear();
+    	cin.ignore(1000, '\n');
+    	cout << "Entra invalida! Digite apenas numero.\n" ;
+    }
+    }
 }
+
 
 int categorias(){
     int opcao;
