@@ -4,6 +4,8 @@
 using namespace std;
 int menu();
 int categorias();
+void guardar_dados(std::string tipo_veiculo, int valor_veiculo);
+void processar_escolha(int opcao);
 
 int main(){
     int opc;
@@ -12,7 +14,25 @@ int main(){
 
         switch(opc){
             case 1:
-            int saida = categorias();
+            int saida;
+            saida = categorias();
+            processar_escolha(saida);
+            break;
+
+            case 2:
+            cout<<"Indisponivel"<<endl;
+            break;
+
+            case 3:
+            cout<<"Indisponivel"<<endl;
+            break;
+
+            case 4:
+            cout<<"Indisponivel"<<endl;
+            break;
+
+            default:
+            cout<<"Opção invalida"<<endl;
         }
 
     }while(opc != 5);
@@ -47,4 +67,25 @@ int categorias(){
         }
         return opcao;
     }       
+}
+
+void guardar_dados(std::string tipo_veiculo, int valor_veiculo){
+    ofstream arquivo("dados.txt", ios::app);
+    if (!arquivo){
+        cout<<"Erro ao abrir o arquivo"<<endl;
+    }
+}
+
+void processar_escolha(int opcao){
+    if (opcao == 1){
+        guardar_dados("Veiculo ligueiro", 20);
+    }else if(opcao == 2){
+        guardar_dados("veiculo medio", 45);
+    }else if(opcao == 3){
+        guardar_dados("Veiculos pesados", 60);
+    }else if(opcao == 4){
+        guardar_dados("veiculo muito pesado", 80);
+    }else{
+        cout<< "Opcao invalida!\n"<<endl;
+    }
 }
