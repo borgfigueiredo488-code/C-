@@ -78,6 +78,7 @@ int main(){
 }
 int menu(){
     int opcao;
+    cout << "\n===== SISTEMA DE PORTAGEM =====\n";
     cout << "\n1- registar passagem" << endl;
     cout << "2- dever passagem" << endl;
     cout << "3- consultar dividas" << endl;
