@@ -12,6 +12,9 @@ int somar_dividas();
 void pesquisa();
 void dividas(int valor);
 void guardar_dividas(std::string matricula, int valor_divida);
+void estatistica();
+int contar_pagamentos();
+int contar_dividas();
 
 int main(){
     int opc;
@@ -268,6 +271,66 @@ int contar_pagamentos(){
     arquivo.close();
     return contador;
 }
+void estatistica(){
+
+    int pagamentos = contar_pagamentos();
+    int dividas = contar_dividas();
+    int total_dividas = somar_dividas();
+
+    int total_carros = pagamentos + dividas;
+
+    ifstream arquivo("dados.txt");
+
+    string linha;
+
+    int classe1 = 0;
+    int classe2 = 0;
+    int classe3 = 0;
+    int classe4 = 0;
+
+    int faturamento = 0;
+
+    if(!arquivo){
+        cout << "Erro ao abrir dados.txt" << endl;
+        return;
+    }
+
+    while(getline(arquivo, linha)){
+
+        if(linha.find("20") != string::npos){
+            classe1++;
+            faturamento += 20;
+        }
+        else if(linha.find("45") != string::npos){
+            classe2++;
+            faturamento += 45;
+        }
+        else if(linha.find("60") != string::npos){
+            classe3++;
+            faturamento += 60;
+        }
+        else if(linha.find("80") != string::npos){
+            classe4++;
+            faturamento += 80;
+        }
+    }
+
+    arquivo.close();
+
+    cout << "\n===== ESTATISTICAS =====" << endl;
+    cout << "Carros ligeiros: " << classe1 << endl;
+    cout << "Carros medios: " << classe2 << endl;
+    cout << "Carros pesados: " << classe3 << endl;
+    cout << "Carros muito pesados: " << classe4 << endl;
+
+    cout << "\nCarros que pagaram: " << pagamentos << endl;
+    cout << "Numero total de carros em divida: " << dividas << endl;
+    cout << "Carros total que passaram: " << total_carros << endl;
+
+    cout << "\nFaturamento do dia: " << faturamento << " mt" << endl;
+    cout << "Total dividas: " << total_dividas << " mt" << endl;
+}
+
 
 void pesquisa(){
     string procura, linha;
