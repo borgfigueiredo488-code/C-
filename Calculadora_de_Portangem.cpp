@@ -67,7 +67,19 @@ int main(){
             case 4:
             cout<<"\n"<< endl;
             estatistica();
-            break;   
+            break;
+            case 5: {
+    char sair;
+    cout << "Tem certeza que deseja sair? (s/n): ";
+    cin >> sair;
+
+    if(sair == 's' || sair == 'S'){
+        cout << "Encerrando o sistema...\n";
+    } else {
+        opc = 0; // não sai
+    }
+    break;
+}
 
             default:
             cout<<"Opção invalida"<<endl;
