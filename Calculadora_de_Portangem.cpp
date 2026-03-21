@@ -23,10 +23,23 @@ int main(){
             cout<<"Indisponivel"<<endl;
             break;
 
-            case 3:
-            cout<<"Indisponivel"<<endl;
-            break;
-
+           case 3:
+           int escolha;
+           cout<<"\n1-Pesquisar Matricula"<< endl;
+           cout<<"2-Mostar todas Matricula"<< endl;
+           cout<<"escolha uma opcao: ";
+           cin>>escolha;
+           if(escolha == 1){
+               cout<<"\n"<<endl;
+               pesquisa();
+           }else if(escolha == 2){
+               cout<<"\n"<<endl;
+               lerArquivo();
+           }else{
+               cout<<"Escolha invalida\n" <<endl;
+               break;
+           }
+           break;
             case 4:
             cout<<"Indisponivel"<<endl;
             break;
