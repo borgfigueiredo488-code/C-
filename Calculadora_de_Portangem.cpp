@@ -66,9 +66,8 @@ int main(){
 
             case 4:
             cout<<"\n"<< endl;
-        estatistica();
-        break;
-            
+            estatistica();
+            break;   
 
             default:
             cout<<"Opção invalida"<<endl;
@@ -78,6 +77,7 @@ int main(){
 
     return 0;
 }
+
 int menu(){
     int opcao;
     cout << "\n===== SISTEMA DE PORTAGEM =====\n";
@@ -211,7 +211,6 @@ void lerArquivo() {
 }
 
 int somar_dividas(){
-
     ifstream arquivo("dividas.txt");
     string linha;
     int total = 0;
@@ -237,6 +236,7 @@ int somar_dividas(){
     arquivo.close();
     return total;
 }
+
 int contar_dividas(){
 
     ifstream arquivo("dividas.txt");
@@ -274,8 +274,8 @@ int contar_pagamentos(){
     arquivo.close();
     return contador;
 }
-void estatistica(){
 
+void estatistica(){
     int pagamentos = contar_pagamentos();
     int dividas = contar_dividas();
     int total_dividas = somar_dividas();
