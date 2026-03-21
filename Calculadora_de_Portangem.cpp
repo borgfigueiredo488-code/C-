@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 using namespace std;
+
 int menu();
 int categorias();
 void guardar_dados(std::string tipo_veiculo, int valor_veiculo);
@@ -25,40 +26,41 @@ int main(){
             break;
             
             case 2:
-        cout<<"\n"<< endl;
-        int op, valor;
-        valor = 0;
-        op = categorias();
-        if (op == 1){
-            valor+=20;
-        }else if(op == 2){
-            valor+=45;
-        }else if(op == 3){
-            valor+=60;
-        }else if(op == 4){
-            valor+=80;
-        }
-        dividas(valor);
-        break;
+            cout<<"\n"<< endl;
+            int op, valor;
+            valor = 0;
+            op = categorias();
+            if (op == 1){
+                valor+=20;
+            }else if(op == 2){
+                valor+=45;
+            }else if(op == 3){
+                valor+=60;
+            }else if(op == 4){
+                valor+=80;
+            }
+            dividas(valor);
+            break;
+            
+            case 3:
+            int escolha;
+            cout<<"\n1-Pesquisar Matricula"<< endl;
+            cout<<"2-Mostar todas Matricula"<< endl;
+            cout<<"escolha uma opcao: ";
+            cin>>escolha;
+
+            if(escolha == 1){
+                cout<<"\n"<<endl;
+                pesquisa();
+            }else if(escolha == 2){
+                cout<<"\n"<<endl;
+                lerArquivo();
+            }else{
+                cout<<"Escolha invalida\n" <<endl;
+                break;
+            }
             break;
 
-           case 3:
-           int escolha;
-           cout<<"\n1-Pesquisar Matricula"<< endl;
-           cout<<"2-Mostar todas Matricula"<< endl;
-           cout<<"escolha uma opcao: ";
-           cin>>escolha;
-           if(escolha == 1){
-               cout<<"\n"<<endl;
-               pesquisa();
-           }else if(escolha == 2){
-               cout<<"\n"<<endl;
-               lerArquivo();
-           }else{
-               cout<<"Escolha invalida\n" <<endl;
-               break;
-           }
-           break;
             case 4:
             cout<<"Indisponivel"<<endl;
             break;
@@ -100,6 +102,7 @@ int categorias(){
         return opcao;
     }       
 }
+
 void guardar_dividas(std::string matricula, int valor_divida){
     ofstream arquivo("dividas.txt", ios::app);
     if (!arquivo){
@@ -109,6 +112,7 @@ void guardar_dividas(std::string matricula, int valor_divida){
     arquivo.close(); 
     cout << "Divida registrada com sucesso!\n" << endl;
 }
+
 void dividas(int valor){
     string v1, v2, v3;
     bool valido;
