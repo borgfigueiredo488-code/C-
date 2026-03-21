@@ -89,3 +89,19 @@ void processar_escolha(int opcao){
         cout<< "Opcao invalida!\n"<<endl;
     }
 }
+void guardar_dados(std::string tipo_veiculo, int valor_veiculo){
+    ofstream arquivo("dados.txt", ios::app);
+    if (!arquivo){
+        cout<<"Erro ao abrir o arquivo"<<endl;
+    }
+
+    arquivo << tipo_veiculo << " " << valor_veiculo << endl;
+    arquivo.close(); 
+    cout << "Pago com sucesso\n" << endl;
+}
+
+void guardar_dividas(std::string matricula, int valor_divida){
+    ofstream arquivo("dividas.txt", ios::app);
+    if (!arquivo){
+        cout<<"Erro ao abrir o arquivo"<<endl;
+    }
