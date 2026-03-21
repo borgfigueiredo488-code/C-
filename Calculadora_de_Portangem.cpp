@@ -9,6 +9,8 @@ void processar_escolha(int opcao);
 void lerArquivo();
 int somar_dividas();
 void pesquisa();
+void dividas(int valor);
+void guardar_dividas(std::string matricula, int valor_divida);
 
 int main(){
     int opc;
@@ -21,9 +23,23 @@ int main(){
             saida = categorias();
             processar_escolha(saida);
             break;
-
+            
             case 2:
-            cout<<"Indisponivel"<<endl;
+        cout<<"\n"<< endl;
+        int op, valor;
+        valor = 0;
+        op = categorias();
+        if (op == 1){
+            valor+=20;
+        }else if(op == 2){
+            valor+=45;
+        }else if(op == 3){
+            valor+=60;
+        }else if(op == 4){
+            valor+=80;
+        }
+        dividas(valor);
+        break;
             break;
 
            case 3:
@@ -83,6 +99,71 @@ int categorias(){
         }
         return opcao;
     }       
+}
+void guardar_dividas(std::string matricula, int valor_divida){
+    ofstream arquivo("dividas.txt", ios::app);
+    if (!arquivo){
+        cout<<"Erro ao abrir o arquivo"<<endl;
+    }
+    arquivo << "Matricula: " << matricula << " | Valor em divida: " << valor_divida << endl;
+    arquivo.close(); 
+    cout << "Divida registrada com sucesso!\n" << endl;
+}
+void dividas(int valor){
+    string v1, v2, v3;
+    bool valido;
+
+    do {
+        cout << "Digite as primeiras 3 letras da Matricula: ";
+        cin >> v1;
+        valido = (v1.length() == 3);
+
+        for(char c : v1){
+            if(!isalpha(c)){
+                valido = false;
+                break;
+            }
+        }
+        if(!valido)
+            cout << "Entrada invalida. Digite apenas 3 letras.\n";
+
+    } while(!valido);
+
+    do {
+        cout << "Digite 3 numeros da Matricula: ";
+        cin >> v2;
+        valido = (v2.length() == 3);
+        for(char c : v2){
+            if(!isdigit(c)){
+                valido = false;
+                break;
+            }
+        }
+        if(!valido)
+            cout << "Entrada invalida. Digite apenas 3 numeros.\n";
+
+    } while(!valido);
+
+    do {
+        cout << "Digite as ultimas 2 letras da Matricula: ";
+        cin >> v3;
+        valido = (v3.length() == 2);
+        for(char c : v3){
+            if(!isalpha(c)){
+                valido = false;
+                break;
+            }
+        }
+        if(!valido)
+            cout << "Entrada invalida. Digite apenas 2 letras.\n";
+
+    } while(!valido);
+
+    for(char &c : v1) c = toupper(c);
+    for(char &c : v3) c = toupper(c);
+    string resultado = v1 + "-" + v2 + "-" + v3;
+    guardar_dividas(resultado, valor);
+    
 }
 
 void guardar_dados(std::string tipo_veiculo, int valor_veiculo){
