@@ -89,3 +89,22 @@ void processar_escolha(int opcao){
         cout<< "Opcao invalida!\n"<<endl;
     }
 }
+void processar_escolha(int opcao){
+    if (opcao == 1){
+        guardar_dados("Veiculo ligueiro", 20);
+    }else if(opcao == 2){
+        guardar_dados("veiculo medio", 45);
+    }else if(opcao == 3){
+        guardar_dados("Veiculos pesados", 60);
+    }else if(opcao == 4){
+        guardar_dados("veiculo muito pesado", 80);
+    }else{
+        cout<< "Opcao invalida!\n"<<endl;
+    }
+}
+
+void guardar_dados(std::string tipo_veiculo, int valor_veiculo){
+    ofstream arquivo("dados.txt", ios::app);
+    if (!arquivo){
+        cout<<"Erro ao abrir o arquivo"<<endl;
+    }
