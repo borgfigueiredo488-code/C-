@@ -102,3 +102,16 @@ void processar_escolha(int opcao){
         cout<< "Opcao invalida!\n"<<endl;
     }
 }
+
+void lerArquivo() {
+    ifstream arquivo("dividas.txt");
+    if (!arquivo) {
+        cout << "Erro ao abrir o arquivo!" << endl;
+        return;
+    }
+    string linha;
+
+    while (getline(arquivo, linha)) {
+        cout << linha << endl;
+    }
+}
