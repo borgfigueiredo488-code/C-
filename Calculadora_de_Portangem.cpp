@@ -6,6 +6,7 @@ int menu();
 int categorias();
 void guardar_dados(std::string tipo_veiculo, int valor_veiculo);
 void processar_escolha(int opcao);
+void lerArquivo();
 int somar_dividas();
 void pesquisa();
 
