@@ -115,3 +115,29 @@ void lerArquivo() {
         cout << linha << endl;
     }
 }
+
+void pesquisa(){
+    string procura, linha;
+    int encontrou = 0;
+    ifstream arquivo("dividas.txt");
+    if (!arquivo) {
+        cout << "Erro ao abrir o arquivo!" << endl;
+        return;
+    }
+
+    cout << "Digite a Matricula: ";
+    cin >> procura;
+    for(char &c : procura){
+    c = toupper(c);}
+
+    cout<<"\n"<<endl;
+    while (getline(arquivo, linha)) {
+        if (linha.find(procura) != string::npos) {
+            encontrou = 1;
+            cout << linha << endl;
+        }
+    }
+    if(encontrou == 0){
+        cout<<"\nNenhuma divida encontrada com essa matricula: "<<procura<<endl;
+    }
+}
