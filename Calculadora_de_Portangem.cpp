@@ -200,7 +200,13 @@ void guardar_dados(std::string tipo_veiculo, int valor_veiculo){
     ofstream arquivo("dados.txt", ios::app);
     if (!arquivo){
         cout<<"Erro ao abrir o arquivo"<<endl;
+        return;
     }
+
+    arquivo << tipo_veiculo << " " << valor_veiculo << endl;
+    arquivo.close();
+
+    cout << "Pagamento registrado com sucesso!\n";
 }
 
 void processar_escolha(int opcao){
