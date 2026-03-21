@@ -116,6 +116,34 @@ void lerArquivo() {
     }
 }
 
+int somar_dividas(){
+
+    ifstream arquivo("dividas.txt");
+    string linha;
+    int total = 0;
+
+    if(!arquivo){
+        cout << "Erro ao abrir dividas.txt" << endl;
+        return 0;
+    }
+
+    while(getline(arquivo, linha)){
+
+        size_t pos = linha.find("Valor em divida:");
+
+        if(pos != string::npos){
+
+            string valor_str = linha.substr(pos + 16);
+            int valor = stoi(valor_str);
+
+            total += valor;
+        }
+    }
+
+    arquivo.close();
+    return total;
+}
+
 void pesquisa(){
     string procura, linha;
     int encontrou = 0;
