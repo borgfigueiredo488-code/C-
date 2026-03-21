@@ -65,8 +65,10 @@ int main(){
             break;
 
             case 4:
-            cout<<"Indisponivel"<<endl;
-            break;
+            cout<<"\n"<< endl;
+        estatistica();
+        break;
+            
 
             default:
             cout<<"Opção invalida"<<endl;
