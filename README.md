@@ -1,3 +1,10 @@
+Nome dos membro:
+-Edil Borge Figueiredo
+-Faria Fernando Gua
+-Daniel Armando Antônio
+-Kevin Muerembe
+
+
 # Sistema de Calculadora de portagens(Via verde)
 
 ## Descrição do Projeto
